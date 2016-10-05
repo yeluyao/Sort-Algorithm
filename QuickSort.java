@@ -20,7 +20,7 @@ public class QuickSort {
 		}
 	}
 
-	// 找出枢轴值的位置
+	// 找出枢轴值的位置，两个下标分别从首尾向中间扫描法
 	public int partition(int arr[], int l, int h) {
 		int temp = arr[l];// 将当前表中第一个元素作为枢轴值
 		while (l < h) {
@@ -36,5 +36,21 @@ public class QuickSort {
 		arr[l] = temp;// 结束时l==h，这个位置就是枢轴值的位置
 		return l;
 	}
-
+	//两个指针索引一前一后逐步向后扫描法（可以让序列的一部分保持相对顺序）
+	public int partition_1(int arr[],int l,int h){
+		int x=arr[h];//以最后一个元素为主元
+		int i=l-1;//i是前面的指针，j是后面的指针
+		for(int j=l;j<=h-1;j++){//从前往后逐一跟主元比较
+			if(arr[j]<=x){//如果当前元素小于主元
+				i++;
+				int temp=arr[j];
+				arr[j]=arr[i];
+				arr[i]=temp;
+			}
+		}
+		int temp=arr[i+1];
+		arr[i+1]=arr[h];
+		arr[h]=temp;
+		
+	}
 }
