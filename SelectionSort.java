@@ -1,4 +1,5 @@
 //选择排序，进n-1遍的处理，第i遍将L[i...n]中最小者与L[i]交换位置。
+//最好最坏的时间复杂度都是O(n^2),不稳定排序
 public class SelectionSort {
 	public void selectionSort(int arr[]){
 		int len=arr.length;
